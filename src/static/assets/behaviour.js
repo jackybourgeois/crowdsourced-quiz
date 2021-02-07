@@ -16,14 +16,14 @@ function getUrlVars() {
 
 // Look for the module param in the URL and set the relevant variable is found
 function getModule() {
-    var module_id = getUrlVars()["module"]
+    var moduleId = getUrlVars()["module"]
     // Hide forms if there is no module set
-    if (module_id === undefined || module_id === "") {
+    if (moduleId === undefined || moduleId === "") {
         document.getElementById("question-section").style.display = "none"
     } else {
-        document.getElementById("module-id-title").innerHTML = module_id
-        document.getElementById("module-id-field").value = module_id
-        document.getElementById("select-module").value = module_id
+        document.getElementById("module-id-title").innerHTML = moduleId
+        document.getElementById("module-id-field").value = moduleId
+        document.getElementById("select-module").value = moduleId
     }
 }
 
@@ -82,7 +82,7 @@ function showAnswer(json) {
     document.getElementById("submit-answer").style.display = "none"
     document.getElementById("answer-form").style.display = "block"
     document.getElementById("question-form").style.display = "block"
-    document.getElementById("attempt_id").value = json.attempt_id
+    document.getElementById("attempt-id").value = json.attempt_id
     const answerMessage = document.getElementById("answer-message")
     if (json.attempt === json.correct_answer) {
         answerMessage.innerHTML = "That's correct!"
@@ -137,11 +137,11 @@ function submitFeedback() {
     }
 
     if (feedback !== "") {
+        const moduleId = document.getElementById("module-id-field").value
+        const url = '/feedback/' + moduleId + "/" + getProgress();
+        const attemptId = document.getElementById("attempt-id").value
+        var params = 'attempt_id=' + attemptId + '&is_helpful=' + feedback;
         const xhr = new XMLHttpRequest();
-        const url = '/feedback/' + module_id + "/" + getProgress();
-
-        var attempt_id = document.getElementById("attempt_id").value
-        var params = 'attempt_id=' + attempt_id + '&is_helpful=' + feedback;
         xhr.open("POST", url, true);
         // Send the proper header information along with the request
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');

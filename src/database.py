@@ -71,15 +71,18 @@ class DatabaseStore:
     query += 'GROUP BY q.id '
     query += 'ORDER BY helpful DESC ' # we put the helpful at the top, to match the betavariate selection
     query += 'LIMIT 1 OFFSET ?;'      # the limit with offset picks 1 question based on the random number
-    query = query.format(seq=','.join(['?']*(len(modules)-1)))
+    query = query.format(seq=','.join(['?']*(len(modules))))
 
     # Get DB connection
     conn = sqlite3.connect(self.database_path)
     c = conn.cursor()
     # put the module IDs and the selection together for the query
-    modules.append(selection)
+    t = modules
+    t.append(selection)
+    print(query)
+    print(t)
     # Execute the query to question the row of the selected question
-    c.execute(query, modules)
+    c.execute(query, t)
     row = c.fetchone()
     # Close the connection
     conn.close()
