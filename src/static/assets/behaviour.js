@@ -65,16 +65,20 @@ function getQuestion() {
 
 // Parse json response from the server to show a question to answer
 function showQuestion(json) {
-    document.getElementById("question-id").value = json.id
-    document.getElementById("submit-answer").style.display = "block"
-    document.getElementById("answer-form").style.display = "none"
-    document.getElementById("question-form").style.display = "block"
-    document.getElementById("waiting").style.display = "none"
-    document.getElementById("progress").innerHTML = questionCount + "/" + QUESTION_TO_ASK
-    document.getElementById("question").innerHTML = json.question_text
-    document.getElementById("answer-a").innerHTML = json.answer_a
-    document.getElementById("answer-b").innerHTML = json.answer_b
-    document.getElementById("answer-c").innerHTML = json.answer_c
+    if (json.id !== undefined) {
+        document.getElementById("question-id").value = json.id
+        document.getElementById("submit-answer").style.display = "block"
+        document.getElementById("answer-form").style.display = "none"
+        document.getElementById("question-form").style.display = "block"
+        document.getElementById("waiting").style.display = "none"
+        document.getElementById("progress").innerHTML = questionCount + "/" + QUESTION_TO_ASK
+        document.getElementById("question").innerHTML = json.question_text
+        document.getElementById("answer-a").innerHTML = json.answer_a
+        document.getElementById("answer-b").innerHTML = json.answer_b
+        document.getElementById("answer-c").innerHTML = json.answer_c
+    } else {
+        document.getElementById("waiting").innerHTML = "Hmm, sorry. It looks like there is no questions available yet."
+    }
 }
 
 // Parse json response from the server to show the answer and feedback form

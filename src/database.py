@@ -89,6 +89,9 @@ class DatabaseStore:
     # Close the connection
     conn.close()
 
+    if row is None:
+      return {}
+    
     # Return a JSON structure with the information of the selected question
     return {
       "id": row[0],
