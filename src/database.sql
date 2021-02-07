@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS questions (
     id text,
-    timestamp integer,
-    module_id integer,
+    timestamp int,
+    module_id int,
     question_text text,
     answer_a_text text,
     answer_b_text text,
@@ -11,14 +11,14 @@ CREATE TABLE IF NOT EXISTS questions (
 );
 CREATE TABLE IF NOT EXISTS attempts (
     id text,
-    timestamp integer,
-    question_id integer,
+    timestamp int,
+    question_id int,
     attempt text,
-    is_correct integer
+    is_correct int
 );
 CREATE TABLE IF NOT EXISTS feedback (
     id text,
-    timestamp integer,
-    attempt_id integer,
-    is_helpful integer
+    timestamp int,
+    attempt_id int,
+    is_helpful int
 );
