@@ -4,4 +4,4 @@ name:  quiz_mapping
 prefix: /
 rewrite: /
 timeout_ms: 30000
-service: quiz:80
+service: quiz:5000
