@@ -266,7 +266,7 @@ function deleteSelected() {
             document.location.reload()
         }
     }
-    json = { questionsToDelete: questionsToDelete }
+    json = { questions_to_delete: questionsToDelete }
     console.log(json)
     xhr.send(JSON.stringify(json))
 }

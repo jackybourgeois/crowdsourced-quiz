@@ -55,8 +55,8 @@ def receive_questions():
 
 @server.route('/' + ACCESS + '/delete', methods = ["POST"])
 def delete_questions():
-    questionsToDelete = request.get_json()["questionsToDelete"]
-    store.delete(questionsToDelete)
+    questions_to_delete = request.get_json()["questions_to_delete"]
+    store.deleteQuestions(questions_to_delete)
     return {"message": "Delete Success"}
 
 @server.route('/' + ACCESS + '/list')
