@@ -192,8 +192,8 @@ class DatabaseStore:
     # Generate ID and timestamp
     feedback_id = str(uuid.uuid4())
     ts = int(time.time())
-    # Transform helpfulness true/false into 1/0
-    helpful = 0
+    # Transform helpfulness true/false into 1/-1
+    helpful = -1
     if is_helpful == 'true':
       helpful = 1
     # Put the parameters together
