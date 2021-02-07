@@ -77,10 +77,9 @@ class DatabaseStore:
     conn = sqlite3.connect(self.database_path)
     c = conn.cursor()
     # put the module IDs and the selection together for the query
-    t = modules
-    t.append(selection)
+    modules.append(selection)
     # Execute the query to question the row of the selected question
-    c.execute(query, t)
+    c.execute(query, modules)
     row = c.fetchone()
     # Close the connection
     conn.close()
