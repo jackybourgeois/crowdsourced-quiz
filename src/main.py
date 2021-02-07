@@ -6,7 +6,7 @@ from os import getenv
 load_dotenv()
 ACCESS = getenv("ACCESS")
 
-store = DatabaseStore("quiz.db")
+store = DatabaseStore("data/quiz.db")
 
 server = Flask('Distributed Quiz')
 
