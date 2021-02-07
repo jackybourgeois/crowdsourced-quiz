@@ -62,7 +62,7 @@ class DatabaseStore:
     number_questions = self.countQuestions(modules)
 
     # Get a random number based on the betavariate (1,1) across the number of available questions
-    selection = int(betavariate(1, 1)*(number_rows-1))
+    selection = int(betavariate(1, 1)*(number_questions-1))
 
     # Get the selected question from questions available for the selected module(s)
     query = 'SELECT q.id, q.module_id, q.question_text, q.answer_a_text, q.answer_b_text, q.answer_c_text, SUM(f.is_helpful) AS \'helpful\' '
