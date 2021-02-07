@@ -77,7 +77,7 @@ function showQuestion(json) {
         document.getElementById("answer-b").innerHTML = json.answer_b
         document.getElementById("answer-c").innerHTML = json.answer_c
     } else {
-        document.getElementById("waiting").innerHTML = "Hmm, sorry. It looks like there is no questions available yet."
+        document.getElementById("waiting").innerHTML = "Hmm, sorry. It looks like there is no question available yet."
     }
 }
 
