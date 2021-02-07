@@ -1,0 +1,71 @@
+<html>
+
+<head>
+
+    <title>IO1075 Crowdsourced Quiz</title>
+
+    <link rel="stylesheet" href="/assets/style.css" />
+    <script type="text/javascript" src="/assets/behaviour.js"></script>
+
+</head>
+
+<body onload="getModule();getQuestion()">
+
+    <header>
+        IO1075 Crowdsourced Quiz
+    </header>
+
+    <main>
+        <input type="hidden" id="module-id-field" name="module_id" value="" required />
+
+        Select your Module:
+        <select id="select-module" onchange="selectModule('/answer_questions')">
+            <option value=""></option>
+            <option value="1">1 - Introduction</option>
+            <option value="2">2 - Web and the Internet</option>
+            <option value="3">3 - Networking Technologies</option>
+            <option value="4">4 - Data Management</option>
+            <option value="5">5 - Software Design</option>
+            <option value="6">6 - Business Model</option>
+            <option value="7">7 - Development Methods</option>
+            <option value="8">8 - Digital Responsibilities</option>
+        </select>
+
+        <section id="question-section">
+
+            <input type="hidden" id="question-id" name="question-id" value="" required />
+            <h1>Quiz questions for Module <span id="module-id-title"></h1>
+
+            <h2 id="waiting">Selecting a question...</h2>
+
+            <div id="question-form" style="display: none">
+                <p>Question <span id="progress"></span></p>
+                <b><p id="question"></p></b>
+                <input type="radio" name="answer" value="a" />A: <span id="answer-a"></span><br>
+                <input type="radio" name="answer" value="b" />B: <span id="answer-b"></span><br>
+                <input type="radio" name="answer" value="c" />C: <span id="answer-c"></span><br><br>
+                <button onclick="submitAnswer()" id="submit-answer">Submit Answer</button>
+            </div>
+
+            <div id="answer-form" style="display: none;">
+                <h2 id="answer-message">Correct!</h2>
+                <input type="hidden" id="attempt_id" name="attempt_id" value="" required />
+                <p>
+                    <i><span id="reference"></span></i>
+                </p>
+                <p>Was this quiz question helpful for you?</p>
+                <p id="question"></p>
+                <input type="radio" name="helpful" value="true" /> Helpful /
+                <input type="radio" name="helpful" value="false" /> Not helpful<br><br>
+                <button id="button-next-question" onclick="submitFeedback()">Submit and go to the next question</button>
+            </div>
+
+            <div id="done" style="display: none;">
+                <h2>Done!</h2>
+                <p id="score"></p>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

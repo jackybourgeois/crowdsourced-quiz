@@ -1,0 +1,32 @@
+<html>
+
+<head>
+
+  <title>IO1075 Crowdsourced Quiz</title>
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script type="text/javascript" src="/assets/behaviour.js"></script>
+
+</head>
+
+<body onload="getListQuestions()">
+
+  <header>
+    IO1075 Crowdsourced Quiz
+  </header>
+
+  <p id="restricted-message" style="display:block">This page has restricted access.</p>
+
+  <main id="restricted-page" style="display:none">
+
+    <h1>Submitted Questions</h1>
+
+    <p><button onclick="deleteSelected()">Delete Selected Question</button></p>
+
+    <section id="list-questions"></section>
+
+  </main>
+
+</body>
+
+</html>

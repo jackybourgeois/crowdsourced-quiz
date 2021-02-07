@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    background-color: #e6f2ff;
+    font-family: Arial
+  }
+
+  header {
+    height: 25px;
+    background-color: #3399ff;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  main {
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  section {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill);
+  }
+
+  section>div {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  input {
+    width: 300px
+  }
+
+  input[type="radio"], input[type="checkbox"] {
+    width: 15px
+  }
+
+  input,
+  select {
+    margin: 10px
+  }

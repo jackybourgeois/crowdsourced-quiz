@@ -1,0 +1,130 @@
+<html>
+
+<head>
+
+  <title>IO1075 Crowdsourced Quiz</title>
+
+  <link rel="stylesheet" href="/assets/style.css" />
+  <script type="text/javascript" src="/assets/behaviour.js"></script>
+
+</head>
+
+<body onload="getModule()">
+
+  <header>
+    IO1075 Crowdsourced Quiz
+  </header>
+
+  <main>
+
+    <div style="float:right;max-width:200px;text-align:center">
+      What is this all about?
+      <iframe width="200px" src="https://www.youtube-nocookie.com/embed/wiU5m9IVXpM" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    </div>
+
+    <p>Select your Module:</p>
+    <select id="select-module" onchange="selectModule('/submit_questions')" style="margin-bottom: 90px">
+      <option value=""></option>
+      <option value="1">Introduction</option>
+      <option value="2">Web and the Internet</option>
+      <option value="3">Networking Technologies</option>
+      <option value="4">Data Management</option>
+      <option value="5">Software Design</option>
+      <option value="6">Business Model</option>
+      <option value="7">Development Methods</option>
+      <option value="8">Digital Responsibilities</option>
+    </select>
+
+    <section id="question-section">
+
+      <h1>Submit 2 questions for Module <span id="module-id-title"></h1>
+
+      <div id="something-empty" style="font-weight: bold;color: #CC0000;display:none">
+        Please fill in all fields.
+      </div>
+
+      <div id="questions">
+        <input type="hidden" id="module-id-field" name="module_id" value="" required />
+        <h2>Question 1</h2>
+
+        <div class="group"><label for="question1">Formulate your question: </label><br>
+          <input type="text" id="question_text1" name="question1" required />
+        </div>
+
+        <div class="group"><label for="answer-a1">What is the potential answer A? </label><br>
+          <input type="text" id="answer-a1" name="answer-a1" required />
+        </div>
+
+        <div class="group"><label for="answer-b1">What is the potential answer B? </label><br>
+          <input type="text" id="answer-b1" name="answer-b1" required />
+        </div>
+
+        <div class="group"><label for="answer-c1">What is the potential answer C</label><br>
+          <input type="text" id="answer-c1" name="answer-c1" required />
+        </div>
+
+        <div class="group"><label for="correct_answer1">The correct answer to your question is: </label><br>
+          <select id="correct_answer1" name="correct_answer1" required>
+            <option value="a">Answer A</option>
+            <option value="b">Answer B</option>
+            <option value="c">Answer C</option>
+          </select>
+        </div>
+
+        <div class="group"><label for="reference1">Explanation and where in the course material shall we look for this
+            answer?</label><br>
+          <textarea id="reference1" name="reference1" cols="40" required></textarea>
+        </div>
+
+        <hr>
+
+        <h2>Question 2</h2>
+
+        <div class="group"><label for="question2">Formulate your question: </label><br>
+          <input type="text" id="question_text2" name="question2" required />
+        </div>
+
+        <div class="group"><label for="answer-a2">What is the potential answer A? </label><br>
+          <input type="text" id="answer-a2" name="answer-a2" required />
+        </div>
+
+        <div class="group"><label for="answer-b2">What is the potential answer B? </label><br>
+          <input type="text" id="answer-b2" name="answer-b2" required />
+        </div>
+
+        <div class="group"><label for="answer-c2">What is the potential answer C? </label><br>
+          <input type="text" id="answer-c2" name="answer-c2" required />
+        </div>
+
+        <div class="group"><label for="correct_answer2">The correct answer to your question is: </label><br>
+          <select id="correct_answer2" name="correct_answer2" required>
+            <option value="a">Answer A</option>
+            <option value="b">Answer B</option>
+            <option value="c">Answer C</option>
+          </select>
+        </div>
+
+        <div class="group"><label for="reference2">Explanation and where in the course material shall we look for this
+            answer?</label><br>
+          <textarea id="reference2" name="reference2" cols="40" required></textarea>
+        </div>
+
+        <hr>
+
+        <button onclick="submitQuestions()">Submit your quiz questions</button>
+
+      </div>
+
+      <div id="response" style="display: none;">
+        Thank you for your contribution!
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+
+</html>
