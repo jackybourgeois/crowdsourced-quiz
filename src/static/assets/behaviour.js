@@ -276,6 +276,7 @@ function deleteSelected() {
 }
 
 function showQuestions(json) {
+    document.getElementById("nb-questions").innerHTML(json.length)
     questionHTML = ""
     for (var i = 0; i < json.length; i++) {
         questionHTML += '<div>'
