@@ -230,9 +230,15 @@ function submitQuestions() {
 
 
 function getListQuestions() {
-    access = getUrlVars()["access"]
+    const moduleId = getUrlVars()["module"]
+    const access = getUrlVars()["access"]
     if (access === undefined || access === "") return;
-    const url = '/' + access + '/list';
+    let url = '/' + access + '/list';
+
+    if (moduleId !== undefined) {
+        url += '?module=' + moduleId
+    }
+
     const xhr = new XMLHttpRequest();
     xhr.open("GET", url, true);
     // Send the proper header information along with the request

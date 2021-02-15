@@ -209,7 +209,7 @@ class DatabaseStore:
     conn.commit()
     conn.close()
   
-  def list(self):
+  def list(self, module_id):
     """
     List all questions from the database
     """
@@ -218,14 +218,18 @@ class DatabaseStore:
     c = conn.cursor()
 
     # Retrieve all questions, sorted by helpfulness
+    params = ()
     query = 'SELECT q.id, q.module_id, q.question_text, q.answer_a_text, q.answer_b_text, q.answer_c_text, q.correct_answer, q.reference, COUNT(*) AS \'num_attempts\', SUM(a.is_correct) AS \'correct_attempt\', SUM(f.is_helpful) AS \'helpful\' '
     query += 'FROM questions q LEFT JOIN attempts a ON q.id=a.question_id LEFT JOIN feedback f ON a.id=f.attempt_id '
+    if module_id != 0:
+      query += 'WHERE q.module_id = ?'
+      params = (module_id,)
     query += 'GROUP BY q.id '
     query += 'ORDER BY helpful DESC'
 
     questions = []
     # For all questions found, build a JSON object and add them to the list of questions
-    for row in c.execute(query):
+    for row in c.execute(query, params):
       questions.append({
         "id": row[0],
         "module": row[1],

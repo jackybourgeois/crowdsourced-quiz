@@ -16,6 +16,10 @@ def select_question(module_id, progress):
     return store.selectQuestion(module_id, progress)
 
 # Load the question page
+@server.route('/count')
+def serve_count():
+    return server.send_static_file('count.html')
+
 @server.route('/moderator')
 def serve_moderator_page():
     return server.send_static_file('moderator.html')
@@ -61,7 +65,8 @@ def delete_questions():
 
 @server.route('/' + ACCESS + '/list')
 def list_questions():
-    return store.list()
+    module = request.args.get("module", default=0, type=int)
+    return store.list(module)
 
 @server.route('/answer_questions')
 def answer_questions():
