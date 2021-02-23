@@ -56,7 +56,7 @@ class DatabaseStore:
     # If progress above .7, include previous module
     if (progress > 0.7 and current_module_id > 1):
       for i in range(1, current_module_id-1):
-            modules.push(i)
+            modules.append(i)
     
     # Count the questions available for the selected module(s)
     number_questions = self.countQuestions(modules)
