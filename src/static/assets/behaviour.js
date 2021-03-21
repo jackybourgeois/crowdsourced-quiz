@@ -186,17 +186,19 @@ function submitQuestions() {
     if (reference1 === "") return somethingEmpty()
 
     let questionText2 = document.getElementById("question_text2").value
-    if (questionText2 === "") return somethingEmpty()
-    let answerA2 = document.getElementById("answer-a2").value
-    if (answerA2 === "") return somethingEmpty()
-    let answerB2 = document.getElementById("answer-b2").value
-    if (answerB2 === "") return somethingEmpty()
-    let answerC2 = document.getElementById("answer-c2").value
-    if (answerC2 === "") return somethingEmpty()
-    let correctAnswer2 = document.getElementById("correct_answer2").value
-    if (correctAnswer2 === "") return somethingEmpty()
-    let reference2 = document.getElementById("reference2").value
-    if (reference2 === "") return somethingEmpty()
+    if (questionText2 !== "") {
+        let answerA2 = document.getElementById("answer-a2").value
+        if (answerA2 === "") return somethingEmpty()
+        let answerB2 = document.getElementById("answer-b2").value
+        if (answerB2 === "") return somethingEmpty()
+        let answerC2 = document.getElementById("answer-c2").value
+        if (answerC2 === "") return somethingEmpty()
+        let correctAnswer2 = document.getElementById("correct_answer2").value
+        if (correctAnswer2 === "") return somethingEmpty()
+        let reference2 = document.getElementById("reference2").value
+        if (reference2 === "") return somethingEmpty()
+    }
+    
 
     const xhr = new XMLHttpRequest();
     const url = '/submit';
@@ -208,12 +210,14 @@ function submitQuestions() {
         + '&answer_c1=' + encodeURIComponent(answerC1)
         + '&correct_answer1=' + encodeURIComponent(correctAnswer1)
         + '&reference1=' + encodeURIComponent(reference1)
-        + '&question_text2=' + encodeURIComponent(questionText2)
+    if (questionText2 !== "") {
+        params += '&question_text2=' + encodeURIComponent(questionText2)
         + '&answer_a2=' + encodeURIComponent(answerA2)
         + '&answer_b2=' + encodeURIComponent(answerB2)
         + '&answer_c2=' + encodeURIComponent(answerC2)
         + '&correct_answer2=' + encodeURIComponent(correctAnswer2)
         + '&reference2=' + encodeURIComponent(reference2)
+    }
     xhr.open("POST", url, true);
     // Send the proper header information along with the request
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

@@ -47,13 +47,14 @@ def receive_questions():
     reference = request.form['reference1']
     store.saveQuestion(module_id, question_text, a, b, c, correct_answer, reference)
 
-    question_text = request.form['question_text2']
-    a = request.form['answer_a2']
-    b = request.form['answer_b2']
-    c = request.form['answer_c2']
-    correct_answer = request.form['correct_answer2']
-    reference = request.form['reference2']
-    store.saveQuestion(module_id, question_text, a, b, c, correct_answer, reference)
+    if 'question_text2' in request.form:
+        question_text = request.form['question_text2']
+        a = request.form['answer_a2']
+        b = request.form['answer_b2']
+        c = request.form['answer_c2']
+        correct_answer = request.form['correct_answer2']
+        reference = request.form['reference2']
+        store.saveQuestion(module_id, question_text, a, b, c, correct_answer, reference)
 
     return {"message":"Thank you for your contribution!"}
 
