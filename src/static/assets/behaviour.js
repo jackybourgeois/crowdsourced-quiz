@@ -186,16 +186,16 @@ function submitQuestions() {
     if (reference1 === "") return somethingEmpty()
 
     let questionText2 = document.getElementById("question_text2").value
+    let answerA2 = document.getElementById("answer-a2").value
+    let answerB2 = document.getElementById("answer-b2").value
+    let answerC2 = document.getElementById("answer-c2").value
+    let correctAnswer2 = document.getElementById("correct_answer2").value
+    let reference2 = document.getElementById("reference2").value
     if (questionText2 !== "") {
-        let answerA2 = document.getElementById("answer-a2").value
         if (answerA2 === "") return somethingEmpty()
-        let answerB2 = document.getElementById("answer-b2").value
         if (answerB2 === "") return somethingEmpty()
-        let answerC2 = document.getElementById("answer-c2").value
         if (answerC2 === "") return somethingEmpty()
-        let correctAnswer2 = document.getElementById("correct_answer2").value
         if (correctAnswer2 === "") return somethingEmpty()
-        let reference2 = document.getElementById("reference2").value
         if (reference2 === "") return somethingEmpty()
     }
     
