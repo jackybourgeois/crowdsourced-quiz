@@ -1,7 +1,0 @@
-apiVersion: ambassador/v1
-kind:  Mapping
-name:  quiz_mapping
-prefix: /
-rewrite: /
-timeout_ms: 30000
-service: quiz:5000
